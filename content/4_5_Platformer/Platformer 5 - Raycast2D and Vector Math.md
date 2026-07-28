@@ -4,11 +4,11 @@ When creating enemies in a game we will often need to handle complex behaviors w
 
 Raycast2Ds are a powerful tool for getting information about the game world. These act somewhat like an Area2D, but instead of a shape a Raycast2D is a single line, or ray, that extends out in a direction. 
 
-![[Pasted image 20251110164615.png]]
+![alt text](<../Pasted image 20251110164615.png>)
 
 This ray can *collide* with PhysicsBodies, and then return back what PhysicsBody it collided with! This can be very useful when we want to respect floors and walls, which Area2Ds ignore. Importantly, a Raycast2D will only tell use the *first* object it collides with. In the scenario below, there is a wall and an object behind the wall. In this first example, even though the ray extends to the object behind the wall, *only* the wall will be returned as the ray hits the wall first:
 
-![[Pasted image 20251110164941.png]]
+![alt text](<../Pasted image 20251110164941.png>)
 
 Another key difference between Raycast2D and Area2D is that Raycast2D does *not* use signals. Instead, Raycasts update every frame and we use the Raycast2D's *methods()* to notify us when a collision has happened. We will use the following methods most often:
 
@@ -46,7 +46,7 @@ We've spoken some about Vectors, but let's dive into them a bit deeper. A Vector
 
 For example, we may have a game where if an enemy sees our player they begin to move toward the player. Below is a graph, with one dot representing our player and the other our enemy:
 
-![[Pasted image 20251111004752.png]]
+![alt text](<../Pasted image 20251111004752.png>)
 
 Here, our player is at position (1, 1) and our enemy is at (4, 3). There are actually two possible *vectors* between these points. One pointing from the player to the enemy, and one pointing from the enemy to the player. To find the vector between any two points we can use a very simple formula:
 
@@ -60,7 +60,7 @@ Resulting in the following vector:
 
 > Vector2(-3, -2)
 
-![[Pasted image 20251111005621.png]]
+![alt text](<../Pasted image 20251111005621.png>)
 
 This is great! But what if our player was further away? We mentioned before that the speed at which a CharacterBody2D moves is based on the *magnitude* of the vector. If the player moves further away our formula will create a vector with a larger *magnitude* meaning the enemy will move faster when far away from the player and slower when its close. This isn't quite what we want. To fix this, we can first *normalize* the vector. This sets the vector to have a magnitude of 1. We do this by using Vector2's normalize() method. Here's what that code might look like:
 
