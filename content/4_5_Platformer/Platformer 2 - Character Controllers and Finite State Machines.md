@@ -97,7 +97,7 @@ Each state has four functions that it can run: enter(), update(), physics_update
 
 And here's an example of what the code for such a behavior would look like:
 
-```python
+```gdscript
 extends State
 
 @onready var player: CharacterBody2D = $"../.."
